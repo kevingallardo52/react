@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import Employee from './components/Employee';
 import { useState } from 'react';
 
@@ -18,9 +18,14 @@ function App() {
             setRole(e.target.value);
           }}
           ></input>
-          <Employee name = "Kevin" role = "Intern"/>    
-          <Employee name = "Abby" role = {role}/>    
-          <Employee name = "Joghn"/>    
+          <div className="flex flex-wrap justify-center">
+          <Employee name = "Kevin" role = "Intern" 
+          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>    
+          <Employee name = "Abby" role = {role}
+          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>    
+          <Employee name = "Joghn"
+          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+          </div>    
         </> ) : (
           <p>You cannot see the employees</p>
         ) }
