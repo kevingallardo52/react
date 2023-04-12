@@ -1,11 +1,33 @@
 import './index.css';
 import Employee from './components/Employee';
 import { useState } from 'react';
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
-  const [role, setRole] = useState('dev')
   const showEmployees = true;
-
+  const [role, setRole] = useState('dev');
+  const [employees, setEmployees] = useState([
+    {
+      name: "Kevin1",
+      role: "Intern1", 
+      img: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
+    },
+    {
+      name: "Kevin2",
+      role: "Intern2", 
+      img: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
+    },
+    {
+      name: "Kevin3",
+      role: role, 
+      img: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
+    },
+    {
+      name: "Kevin4",
+      role: "Intern4", 
+      img: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
+    },
+  ]);
   return (
     <div className="App">
       
@@ -19,12 +41,16 @@ function App() {
           }}
           ></input>
           <div className="flex flex-wrap justify-center">
-          <Employee name = "Kevin" role = "Intern" 
-          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>    
-          <Employee name = "Abby" role = {role}
-          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>    
-          <Employee name = "Joghn"
-          img="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+            
+              {employees.map((employee) => {
+                return (
+                <Employee 
+                  key={uuidv4()}
+                  name={employee.name} 
+                  role={employee.role} 
+                  img={employee.img}/>
+                );
+              })}
           </div>    
         </> ) : (
           <p>You cannot see the employees</p>
